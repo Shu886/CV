@@ -1,3 +1,6 @@
+# The code aims to  preview the vanishingPonit of a image, I use Gaussian filter, Canny algorithm to generate Edge,
+# Hough transfunction to fing lines, in a result find the VanishingPoint with RANSAC and Least square method.
+
 import os
 import cv2
 import math
@@ -133,7 +136,41 @@ def GetVanishingPoint(Lines, inlier):
                     VanishingPoint = [x0, y0]
 
     return VanishingPoint
+    
+/*  Least square method
+def GetVanishingPoint(Lines):
+    VanishingPoint = None
+    MinError = 100000000000
 
+    for i in range(len(Lines)):
+        for j in range(i+1, len(Lines)):
+            m1, c1 = Lines[i][4], Lines[i][5]
+            m2, c2 = Lines[j][4], Lines[j][5]
+
+            if m1 != m2:
+                x0 = (c1 - c2) / (m2 - m1)
+                y0 = m1 * x0 + c1
+
+                err = 0
+                for k in range(len(Lines)):
+                    m, c = Lines[k][4], Lines[k][5]
+                    m_ = (-1 / m)
+                    c_ = y0 - m_ * x0
+
+                    x_ = (c - c_) / (m_ - m)
+                    y_ = m_ * x_ + c_
+
+                    l = math.sqrt((y_ - y0)**2 + (x_ - x0)**2)
+
+                    err += l**2
+
+                err = math.sqrt(err)
+
+                if MinError > err:
+                    MinError = err
+                    VanishingPoint = [x0, y0]
+                
+    return VanishingPoint */
 
 if __name__ == "__main__":
     
