@@ -1,5 +1,5 @@
 # The code aims to  preview the vanishingPonit of a image, I use Gaussian filter, Canny algorithm to generate Edge,
-# Hough transfunction to fing lines, in a result find the VanishingPoint with RANSAC and Least square method.
+# Hough transfunction to fing lines, in a result, I find the VanishingPoint with RANSAC and Least square method.
 
 import os
 import cv2
