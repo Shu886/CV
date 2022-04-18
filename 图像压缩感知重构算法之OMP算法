@@ -31,8 +31,6 @@ for k in range(0, 256):
 img_cs_1d = np.dot(Phi, im)
 
 #OMP算法函数
-
-
 def cs_omp(y, D):  # 传入参数为y和传感矩阵
     L = math.floor(y.shape[0]/4)
     residual = y  # 初始化残差
