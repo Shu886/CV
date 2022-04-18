@@ -18,7 +18,7 @@ im = np.array(image)  # 图片大小256*256
 sampleRate = 0.1  # 采样率
 Phi = np.random.randn(int(256*sampleRate), 256)
 
-#生成稀疏基DCT矩阵
+#生成稀疏基DCT（余弦变换）矩阵
 mat_dct_1d = np.zeros((256, 256))
 v = range(256)
 for k in range(0, 256):
